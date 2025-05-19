@@ -1,0 +1,120 @@
+{
+  "places": [
+    {
+      "id": 1,
+      "name": "Horsley Hills",
+      "description": "Horsley Hills, also known as Yenugulla Mallamma Konda, is a beautiful hill station located in Andhra Pradesh, India. Situated at an elevation of 1,265 meters above sea level, it offers breathtaking views of the surrounding landscape.",
+      "city": "Madanapalle",
+      "image_url": "/Images/Horsley_Hills.jpg",
+      "rating": 4.5,
+      "category": "Hills",
+      "location": "Horsley Hills, Madanapalle, Andhra Pradesh",
+      "images": [
+        "/Images/Horsley_Hills.jpg",
+        "/Images/Horsley_Hills_2.jpg",
+        "/Images/Horsley_Hills_3.jpg"
+      ],
+      "features": [
+        "Scenic viewpoints",
+        "Trekking trails",
+        "Nature walks",
+        "Bird watching"
+      ],
+      "visiting_hours": "6:00 AM - 6:00 PM",
+      "best_time_to_visit": "October to February",
+      "entry_fee": "₹50 per person"
+    },
+    {
+      "id": 2,
+      "name": "Talakona Waterfalls",
+      "description": "Talakona Waterfalls is the highest waterfall in Andhra Pradesh, with a height of 270 feet. Located in the Sri Venkateswara National Park, it's surrounded by dense forests and offers a spectacular view of nature's beauty.",
+      "city": "Tirupati",
+      "image_url": "/Images/Talakona_Waterfalls.jpg",
+      "rating": 4.3,
+      "category": "Waterfalls",
+      "location": "Talakona, Tirupati, Andhra Pradesh",
+      "images": [
+        "/Images/Talakona_Waterfalls.jpg",
+        "/Images/Talakona_Waterfalls_2.jpg"
+      ],
+      "features": [
+        "Waterfall view",
+        "Trekking",
+        "Nature trails",
+        "Photography"
+      ],
+      "visiting_hours": "8:00 AM - 5:00 PM",
+      "best_time_to_visit": "July to March",
+      "entry_fee": "₹30 per person"
+    },
+    {
+      "id": 3,
+      "name": "RK Beach",
+      "description": "RK Beach (Ramakrishna Beach) is one of the most popular beaches in Visakhapatnam. It offers a perfect blend of natural beauty and modern amenities, making it a favorite spot for both locals and tourists.",
+      "city": "Visakhapatnam",
+      "image_url": "/Images/RK_Beach.jpg",
+      "rating": 4.4,
+      "category": "Beaches",
+      "location": "RK Beach, Visakhapatnam, Andhra Pradesh",
+      "images": [
+        "/Images/RK_Beach.jpg",
+        "/Images/RK_Beach_2.jpg"
+      ],
+      "features": [
+        "Beach activities",
+        "Sunset views",
+        "Food stalls",
+        "Water sports"
+      ],
+      "visiting_hours": "24 hours",
+      "best_time_to_visit": "October to March",
+      "entry_fee": "Free"
+    },
+    {
+      "id": 4,
+      "name": "Chandragiri Fort",
+      "description": "Chandragiri Fort is a historical fort built in the 11th century. It was the last capital of the Vijayanagara Empire and offers a glimpse into the rich history and architecture of the bygone era.",
+      "city": "Tirupati",
+      "image_url": "/Images/Chandragiri_Fort.jpg",
+      "rating": 4.2,
+      "category": "Forts",
+      "location": "Chandragiri, Tirupati, Andhra Pradesh",
+      "images": [
+        "/Images/Chandragiri_Fort.jpg",
+        "/Images/Chandragiri_Fort_2.jpg"
+      ],
+      "features": [
+        "Historical architecture",
+        "Museum",
+        "Light and sound show",
+        "Photography"
+      ],
+      "visiting_hours": "9:00 AM - 5:00 PM",
+      "best_time_to_visit": "October to March",
+      "entry_fee": "₹20 per person"
+    },
+    {
+      "id": 5,
+      "name": "Belum Caves",
+      "description": "Belum Caves are the second largest caves in the Indian subcontinent. These natural caves are known for their stalactite and stalagmite formations, creating a mesmerizing underground world.",
+      "city": "Kurnool",
+      "image_url": "/Images/Belum_Caves.jpg",
+      "rating": 4.6,
+      "category": "Caves",
+      "location": "Belum, Kurnool, Andhra Pradesh",
+      "images": [
+        "/Images/Belum_Caves.jpg",
+        "/Images/Belum_Caves_2.jpg"
+      ],
+      "features": [
+        "Cave exploration",
+        "Natural formations",
+        "Guided tours",
+        "Photography"
+      ],
+      "visiting_hours": "10:00 AM - 5:00 PM",
+      "best_time_to_visit": "October to March",
+      "entry_fee": "₹65 per person"
+    }
+  ]
+} 
