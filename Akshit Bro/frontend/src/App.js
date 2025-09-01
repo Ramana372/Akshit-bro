@@ -7,6 +7,7 @@ import Places from './Components/Pages/Places';
 import ExpertHistory from './Components/Pages/ExpertHistory';
 import LoginRegister from './Components/Pages/LoginRegister';
 import PlaceDetail from './Components/Pages/PlaceDetail';
+import Profile from './Components/Pages/Profile';
 import './App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/places/:id" element={<PlaceDetail />} />
           <Route path="/expert" element={<ExpertHistory />} />
           <Route path="/login" element={<LoginRegister />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
     </Router>

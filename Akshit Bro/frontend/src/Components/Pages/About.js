@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './About.css';
 
 const About = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+    
     return (
         <div className="about-page">
             <div className="about-hero">
@@ -49,14 +53,6 @@ const About = () => {
                                 Expert in crafting personalized travel itineraries and cultural experiences.
                             </div>
                         </div>
-                        <div className="team-member">
-                            <img src="/Images/team3.jpg" alt="Michael" />
-                            <h3>Michael Chen</h3>
-                            <p>Adventure Specialist</p>
-                            <div className="bio">
-                                Dedicated to creating thrilling adventure experiences for our travelers.
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -64,4 +60,4 @@ const About = () => {
     );
 };
 
-export default About; 
+export default About;

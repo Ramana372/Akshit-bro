@@ -1,175 +1,190 @@
 .auth-container {
     min-height: 100vh;
+    background: linear-gradient(135deg, #e0f2fe 0%, #f8fafc 100%);
     display: flex;
-    align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    padding: 2rem;
+    align-items: center;
+    padding: 64px 30px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #2c3e50;
 }
 
 .auth-box {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
     width: 100%;
-    max-width: 450px;
-    animation: fadeIn 0.5s ease-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.auth-header {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 48px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     text-align: center;
-    margin-bottom: 2rem;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .auth-header h2 {
-    color: #2c3e50;
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    font-size: 32px;
+    font-weight: 600;
+    color: #1e3a8a;
+    margin-bottom: 12px;
 }
 
 .auth-header p {
-    color: #666;
-    font-size: 1rem;
+    font-size: 18px;
+    color: #64748b;
+    margin-bottom: 24px;
+}
+
+.error-message {
+    background: rgba(220, 38, 38, 0.1);
+    color: #dc2626;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    font-size: 16px;
 }
 
 .auth-form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 24px;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    text-align: left;
 }
 
 .form-group label {
-    color: #2c3e50;
-    font-size: 0.9rem;
+    font-size: 16px;
     font-weight: 500;
+    color: #1e3a8a;
+    margin-bottom: 8px;
 }
 
 .form-group input {
-    padding: 0.8rem;
-    border: 2px solid #e1e1e1;
+    padding: 12px 16px;
+    border: 2px solid #3498db;
     border-radius: 8px;
-    font-size: 1rem;
+    font-size: 16px;
+    color: #2c3e50;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
 }
 
 .form-group input:focus {
-    border-color: #3498db;
-    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
     outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
 .remember-forgot {
-    flex-direction: row;
+    display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 14px;
 }
 
 .remember-me {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-}
-
-.remember-me input[type="checkbox"] {
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
+    gap: 8px;
+    color: #64748b;
 }
 
 .forgot-password {
     color: #3498db;
     text-decoration: none;
-    font-size: 0.9rem;
     transition: color 0.3s ease;
 }
 
 .forgot-password:hover {
-    color: #2980b9;
+    color: #2563eb;
 }
 
 .submit-button {
+    padding: 16px;
     background: #3498db;
     color: white;
     border: none;
-    padding: 1rem;
     border-radius: 8px;
-    font-size: 1rem;
+    font-size: 18px;
     font-weight: 500;
     cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
-    margin-top: 1rem;
 }
 
 .submit-button:hover {
-    background: #2980b9;
+    background: #2563eb;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.submit-button:disabled {
+    background: #64748b;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
 }
 
 .auth-footer {
-    text-align: center;
-    margin-top: 2rem;
-    color: #666;
+    margin-top: 24px;
+}
+
+.auth-footer p {
+    font-size: 16px;
+    color: #64748b;
 }
 
 .toggle-button {
     background: none;
     border: none;
     color: #3498db;
+    font-size: 16px;
     font-weight: 500;
     cursor: pointer;
-    padding: 0;
-    font-size: 1rem;
     transition: color 0.3s ease;
 }
 
 .toggle-button:hover {
-    color: #2980b9;
+    color: #2563eb;
 }
 
-.error-message {
-    background-color: #fee2e2;
-    color: #dc2626;
-    padding: 0.75rem;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-    text-align: center;
-    border: 1px solid #fecaca;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.submit-button:disabled {
-    background: #93c5fd;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 32px 12px;
+    }
+    .auth-box {
+        padding: 32px;
+    }
+    .auth-header h2 {
+        font-size: 28px;
+    }
+    .auth-header p {
+        font-size: 16px;
+    }
+    .submit-button {
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 480px) {
+    .auth-container {
+        padding: 24px 8px;
+    }
     .auth-box {
-        padding: 2rem;
+        padding: 24px;
     }
-
     .auth-header h2 {
-        font-size: 1.75rem;
+        font-size: 24px;
     }
-
-    .remember-forgot {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
+    .auth-header p {
+        font-size: 14px;
     }
-} 
+}

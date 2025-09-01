@@ -1,9 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ExpertHistory.css';
 
 const ExpertHistory = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedMedia, setSelectedMedia] = useState(null);
+  const [locationInfo, setLocationInfo] = useState(null);
+
+  useEffect(() => {
+    if (selectedMedia) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+    
+    return () => {
+      document.body.classList.remove('modal-open');
+    };
+  }, [selectedMedia]);
 
   const expert = {
     name: 'Akshit',
@@ -13,22 +26,22 @@ const ExpertHistory = () => {
     achievements: [
       {
         title: 'National Geographic Featured Photographer',
-        icon: '📸',
+        icon: '',
         year: '2023'
       },
       {
         title: 'Winner of World Travel Photography Award',
-        icon: '🏆',
+        icon: '',
         year: '2022'
       },
       {
         title: 'Published in Lonely Planet Magazine',
-        icon: '📚',
+        icon: '',
         year: '2021'
       },
       {
         title: 'Featured in Travel + Leisure',
-        icon: '✈️',
+        icon: '',
         year: '2023'
       }
     ],
@@ -38,13 +51,20 @@ const ExpertHistory = () => {
     {
       place: 'Warangal',
       description: 'The City of Temples',
+      coordinates: { lat: 18.0002, lng: 79.5882 },
+      history: 'Warangal was the capital of the Kakatiya dynasty from the 12th to 14th centuries. The city is known for its rich architectural heritage and historical significance.',
+      bestTimeToVisit: 'October to March',
+      localSpecialties: ['Warangal Durries (carpets)', 'Bidri Craft', 'Dokra metal craft'],
       media: [
         { 
           type: 'photo', 
           url: '/Images/Warangal Fort.jpg', 
           alt: 'Historic Warangal Fort',
           description: 'Ancient ruins of the Kakatiya dynasty.',
+          fullDescription: 'The magnificent Warangal Fort was built in the 13th century by King Ganapati Deva of the Kakatiya dynasty. Its iconic stone gateways (Kakatiya Thoranam) have become the emblem of Telangana state. The fort complex includes temples, pillars, and stone structures showcasing the remarkable craftsmanship of the era.',
           tags: ['History', 'Architecture', 'Heritage'],
+          yearTaken: '2023',
+          cameraDetails: 'Canon EOS R5, 24-70mm f/2.8',
           relatedVideos: []
         },
         { 
@@ -52,7 +72,10 @@ const ExpertHistory = () => {
           url: '/Images/1000pillerstemple.jpg', 
           alt: 'Thousand Pillar Temple',
           description: 'A marvel of Kakatiya architecture.',
+          fullDescription: 'The Thousand Pillar Temple, or Rudreshwara Swamy Temple, is a historic Hindu temple built in 1163 AD by King Rudra Deva. Its renowned for its star-shaped design and intricate carvings. Though called the Thousand Pillar Temple, it actually contains 999 pillars, with each pillar featuring unique ornate carvings depicting Hindu mythology.',
           tags: ['Temple', 'Architecture', 'Heritage'],
+          yearTaken: '2023',
+          cameraDetails: 'Sony Alpha A7III, 16-35mm f/2.8',
           relatedVideos: []
         },
         {
@@ -60,7 +83,10 @@ const ExpertHistory = () => {
           url: '/Images/Ramappa temple.jpg',
           alt: 'Ramappa Temple',
           description: 'UNESCO World Heritage Site showcasing Kakatiya architecture.',
+          fullDescription: 'Built during the 1213 AD by General Recherla Rudra of Kakatiya King Ganapati Deva, Ramappa Temple is renowned for its "floating bricks" (which float when placed in water due to their porous nature), intricate carvings, and the flexible sandbox foundation that has helped it survive earthquakes. The temple became a UNESCO World Heritage Site in 2021.',
           tags: ['Temple', 'UNESCO', 'Heritage'],
+          yearTaken: '2022',
+          cameraDetails: 'Nikon Z7, 24-70mm f/4',
           relatedVideos: []
         }
       ],
@@ -68,13 +94,20 @@ const ExpertHistory = () => {
     {
       place: 'Laknavaram',
       description: 'Scenic Lake Paradise',
+      coordinates: { lat: 18.1731, lng: 80.2697 },
+      history: 'Laknavaram Lake is a man-made lake constructed during the reign of the Kakatiya dynasty. It\'s known for its unique suspension bridge connecting multiple islands.',
+      bestTimeToVisit: 'September to February',
+      localSpecialties: ['Boating', 'Island hopping', 'Tribal cuisine'],
       media: [
         { 
           type: 'photo', 
           url: '/Images/Laknavaram lake bridge.jpg', 
           alt: 'Laknavaram Lake Bridge',
           description: 'Suspension bridge over serene waters.',
+          fullDescription: 'The iconic suspension bridge at Laknavaram Lake spans 160 meters, connecting several small islands. From the bridge, visitors can enjoy panoramic views of the surrounding hills and forests. The bridge has become a popular tourist attraction and offers a unique perspective of the lake\'s beauty.',
           tags: ['Nature', 'Lake', 'Bridge'],
+          yearTaken: '2023',
+          cameraDetails: 'Canon EOS R6, 70-200mm f/2.8',
           relatedVideos: []
         },
         {
@@ -82,7 +115,10 @@ const ExpertHistory = () => {
           url: '/Images/carousel-img1.jpg',
           alt: 'Laknavaram Lake View',
           description: 'Panoramic view of the lake.',
+          fullDescription: 'This wide-angle shot captures the expansive beauty of Laknavaram Lake surrounded by lush green forests. The lake is home to numerous small islands and covers an area of approximately 10,000 acres. The placid waters reflect the sky, creating a mirror-like effect that\'s particularly stunning during sunrise and sunset.',
           tags: ['Nature', 'Lake', 'Scenic'],
+          yearTaken: '2023',
+          cameraDetails: 'DJI Mavic 3 Pro',
           relatedVideos: []
         }
       ],
@@ -290,11 +326,16 @@ const ExpertHistory = () => {
   );
 
   const handleMediaClick = (media, location) => {
-    setSelectedMedia({ ...media, location });
+    console.log("Media clicked:", media);
+    console.log("Location:", location);
+    
+    setSelectedMedia(media);
+    setLocationInfo(location);
   };
 
   const closeModal = () => {
     setSelectedMedia(null);
+    setLocationInfo(null);
   };
 
   return (
@@ -340,7 +381,7 @@ const ExpertHistory = () => {
             className="expert-search-input"
             aria-label="Search travel locations"
           />
-          <span className="expert-search-icon" aria-hidden="true">🔍</span>
+          <span className="expert-search-icon" aria-hidden="true"></span>
         </div>
         {filteredGallery.length > 0 ? (
           filteredGallery.map((location, index) => (
@@ -358,17 +399,20 @@ const ExpertHistory = () => {
                     onKeyDown={(e) => e.key === 'Enter' && handleMediaClick(item, location)}
                     aria-label={`View ${item.alt}`}
                   >
-                    <img
-                      className="media-content"
-                      src={item.url}
-                      alt={item.alt}
-                      loading="lazy"
-                    />
+                    <figure className="media-figure">
+                      <img
+                        className="media-content"
+                        src={item.url}
+                        alt={item.alt}
+                        loading="lazy"
+                      />
+                      <figcaption className="media-figcaption">{item.alt}</figcaption>
+                    </figure>
                     <div className="media-overlay">
                       <h4 className="media-title">{item.alt}</h4>
                       <p className="media-description">{item.description}</p>
                       <div className="media-tags">
-                        {item.tags.map((tag, tagIndex) => (
+                        {item.tags && item.tags.map((tag, tagIndex) => (
                           <span key={tagIndex} className="media-tag">{tag}</span>
                         ))}
                       </div>
@@ -377,24 +421,26 @@ const ExpertHistory = () => {
                 ))}
               </div>
             </div>
+            
           ))
         ) : (
           <div className="no-results">
-            <span className="no-results-icon">🔍</span>
+            <span className="no-results-icon"></span>
             <p>No locations found matching your search.</p>
             <p>Try searching for a different location or browse all destinations.</p>
           </div>
         )}
       </section>
 
-      {/* Media Modal */}
+      {/* Simple Modal */}
       {selectedMedia && (
         <div className="media-modal" onClick={closeModal}>
           <div className="media-modal-content" onClick={e => e.stopPropagation()} role="dialog" aria-labelledby="modal-title">
-            <button className="modal-close" onClick={closeModal} aria-label="Close modal">×</button>
+            <button className="modal-close" onClick={closeModal} aria-label="Close modal"></button>
             
             <div className="modal-header">
               <h2 id="modal-title">{selectedMedia.alt}</h2>
+              {locationInfo && <p className="modal-location"> {locationInfo.place}</p>}
             </div>
 
             <div className="modal-main-content">
@@ -408,65 +454,17 @@ const ExpertHistory = () => {
               </div>
               
               <div className="modal-info">
-                <p className="modal-description">{selectedMedia.description}</p>
+                <p className="modal-description">
+                  {selectedMedia.description}
+                </p>
+                
                 <div className="modal-tags">
-                  {selectedMedia.tags.map((tag, index) => (
+                  {selectedMedia.tags && selectedMedia.tags.map((tag, index) => (
                     <span key={index} className="modal-tag">{tag}</span>
                   ))}
                 </div>
               </div>
             </div>
-
-            {selectedMedia.relatedVideos && selectedMedia.relatedVideos.length > 0 && (
-              <div className="modal-related-videos">
-                <h3>Related Videos</h3>
-                <div className="related-videos-grid">
-                  {selectedMedia.relatedVideos.map((video, index) => (
-                    <div key={index} className="related-video-item">
-                      {video.type === 'video' ? (
-                        <video
-                          src={video.url}
-                          controls
-                          className="related-video"
-                          poster={video.thumbnail}
-                          aria-label={video.alt}
-                        />
-                      ) : (
-                        <div className="youtube-wrapper">
-                          <iframe
-                            src={video.url}
-                            title={video.alt}
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                            className="related-video"
-                            loading="lazy"
-                          ></iframe>
-                        </div>
-                      )}
-                      <div className="related-video-info">
-                        <h4>{video.alt}</h4>
-                        <div className="video-stats">
-                          <span><span className="views-icon" aria-hidden="true">👁️</span> {video.views} views</span>
-                          <span><span className="duration-icon" aria-hidden="true">⏱️</span> {video.duration}</span>
-                        </div>
-                        {video.youtubeLink && (
-                          <a
-                            href={video.youtubeLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="youtube-link"
-                            aria-label={`Watch ${video.alt} on YouTube`}
-                          >
-                            <span className="youtube-icon" aria-hidden="true">▶</span>
-                            Watch on YouTube
-                          </a>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
         </div>
       )}

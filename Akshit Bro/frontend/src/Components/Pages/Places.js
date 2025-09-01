@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import "./Places.css";
-import axios from "axios";
+import API from "./api.js";
+
+
 
 const Places = () => {
   const [places, setPlaces] = useState([]);
@@ -53,7 +55,7 @@ const Places = () => {
     setError("");
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:5000/places');
+      const response = await API.get("/places");
       if (response.data) {
         setPlaces(response.data);
       } else {
